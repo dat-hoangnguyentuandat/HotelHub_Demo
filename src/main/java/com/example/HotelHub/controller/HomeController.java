@@ -9,4 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
     public String hello(Model model) {
         return "register/register.html";
     }
+
+    @GetMapping("/customer_mode")
+    public String customer_mode(Model model) {
+        return "customer_mode/customer_mode";
+    }
 }
