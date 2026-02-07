@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Yêu cầu</title>
+    <link rel="stylesheet" href="/css/request_management.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="user-info">
+                <img src="https://via.placeholder.com/50" alt="Avatar" class="avatar">
+                <div class="user-details">
+                    <p class="user-name">Quản lý viên Khách sạn</p>
+                    <p class="user-role">Quản lý viên</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <a href="#" class="menu-item">
+                    <span class="icon">🏠</span>
+                    <span>Tổng quan</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="icon">👥</span>
+                    <span>Nhân viên</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="icon">📅</span>
+                    <span>Lịch trình</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="icon">📊</span>
+                    <span>Báo cáo</span>
+                </a>
+                <a href="#" class="menu-item active">
+                    <span class="icon">📋</span>
+                    <span>Quản lý yêu cầu</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="icon">⚙️</span>
+                    <span>Cài đặt</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1>Quản lý Yêu cầu</h1>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Nhập yêu cầu tìm kiếm" class="search-input">
+                <button class="search-btn">Tìm kiếm</button>
+            </div>
+
+            <div class="table-container">
+                <table class="requests-table">
+                    <thead>
+                        <tr>
+                            <th>Họ và tên</th>
+                            <th>Loại yêu cầu</th>
+                            <th>Nội dung</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nguyễn Nhật Hào</td>
+                            <td>Check-in sớm</td>
+                            <td>Tối đến lúc 3h sáng</td>
+                            <td><span class="status pending">Chờ xử lý</span></td>
+                            <td><button class="action-btn">Duyệt | Từ chối</button></td>
+                        </tr>
+                        <tr>
+                            <td>Trần Đức</td>
+                            <td>Trăng tối sinh nhật</td>
+                            <td>Bông bay + bánh kem nhỏ</td>
+                            <td><span class="status pending">Chờ xử lý</span></td>
+                            <td><button class="action-btn">Duyệt | Từ chối</button></td>
+                        </tr>
+                        <tr>
+                            <td>Bùi Trí Tài</td>
+                            <td>Ăn không</td>
+                            <td>Không đường, không đầu mỡ</td>
+                            <td><span class="status pending">Chờ xử lý</span></td>
+                            <td><button class="action-btn">Duyệt | Từ chối</button></td>
+                        </tr>
+                        <tr>
+                            <td>Lê Nguyễn Thế Kiệt</td>
+                            <td>Không tắm phòng</td>
+                            <td>Không đường, không đầu mỡ trong suất thời gian lưu trú</td>
+                            <td><span class="status approved">Đã xử lý</span></td>
+                            <td><button class="action-btn">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Tuấn Anh</td>
+                            <td>Mang hành lý yên phòng</td>
+                            <td>Có nhiều hành lý cần hỗ trợ vận chuyển</td>
+                            <td><span class="status approved">Đã xử lý</span></td>
+                            <td><button class="action-btn">Xóa</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn">‹</button>
+                <span class="page-number">2</span>
+                <button class="pagination-btn">›</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
