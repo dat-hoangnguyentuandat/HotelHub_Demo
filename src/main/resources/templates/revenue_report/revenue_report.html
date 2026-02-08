@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Doanh thu - HotelHub</title>
+    <link rel="stylesheet" th:href="@{/css/revenue_report.css}">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <img src="https://i.pravatar.cc/40?img=5" alt="User">
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Quản trị viên Khách sạn</div>
+                        <div class="user-role">Quản trị viên</div>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                    Dashboard
+                </a>
+                
+                <a href="#" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    </svg>
+                    Báo cáo
+                </a>
+                
+                <a href="#" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    Đặt phòng
+                </a>
+                
+                <a href="#" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                    Khách hàng
+                </a>
+                
+                <a href="#" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6"/>
+                    </svg>
+                    Cài đặt
+                </a>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Báo cáo Doanh thu & Công nợ Chi tiết</h1>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Từ ngày</label>
+                    <input type="date" placeholder="Chọn ngày">
+                </div>
+                
+                <div class="filter-group">
+                    <label>Đến ngày</label>
+                    <input type="date" placeholder="Chọn ngày">
+                </div>
+                
+                <div class="filter-group">
+                    <label>Nguồn</label>
+                    <select>
+                        <option>Chọn nguồn</option>
+                        <option>Trực tiếp</option>
+                        <option>Online</option>
+                        <option>Đại lý</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Trạng thái thanh toán</label>
+                    <select>
+                        <option>Chọn trạng thái</option>
+                        <option>Đã thanh toán</option>
+                        <option>Chờ thanh toán</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Export Buttons -->
+            <div class="export-buttons">
+                <button class="export-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="12" y1="18" x2="12" y2="12"/>
+                        <line x1="9" y1="15" x2="15" y2="15"/>
+                    </svg>
+                </button>
+                <button class="export-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                </button>
+                <button class="export-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polyline points="6 9 6 2 18 2 18 9"/>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="card-label">Tổng doanh thu</div>
+                    <div class="card-value">12.500 VNĐ</div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-label">Doanh thu thực tế</div>
+                    <div class="card-value">10.200 VNĐ</div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-label">Tổng công nợ</div>
+                    <div class="card-value">2.300 VNĐ</div>
+                </div>
+            </div>
+            
+            <!-- Revenue Table -->
+            <div class="revenue-table">
+                <!-- Table Header -->
+                <div class="table-header">
+                    <div class="header-cell">Mã hóa đơn</div>
+                    <div class="header-cell">Ngày tạo</div>
+                    <div class="header-cell">Tên khách hàng</div>
+                    <div class="header-cell">Phòng</div>
+                    <div class="header-cell">Nguồn</div>
+                    <div class="header-cell">Tổng tiền (trước nghĩa VNĐ)</div>
+                    <div class="header-cell">Đã cọc (trước nghĩa VNĐ)</div>
+                    <div class="header-cell">Còn lại (VNĐ)</div>
+                    <div class="header-cell">Trạng thái</div>
+                    <div class="header-cell">Người tạo</div>
+                    <div class="header-cell">Xem chi tiết</div>
+                </div>
+                
+                <!-- Table Rows -->
+                <div class="table-row">
+                    <div class="table-cell">HD-2-023-001</div>
+                    <div class="table-cell">2023-08-15</div>
+                    <div class="table-cell">Nguyễn Thị Thảo</div>
+                    <div class="table-cell">101</div>
+                    <div class="table-cell">OTA</div>
+                    <div class="table-cell">1.200</div>
+                    <div class="table-cell">500</div>
+                    <div class="table-cell">700</div>
+                    <div class="table-cell">
+                        <span class="status-badge status-paid">Đã thanh toán</span>
+                    </div>
+                    <div class="table-cell">Trần Văn An</div>
+                    <div class="table-cell">
+                        <button class="view-btn">Xem chi tiết</button>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell">HD-2-023-002</div>
+                    <div class="table-cell">2023-08-16</div>
+                    <div class="table-cell">Lê Minh Khải</div>
+                    <div class="table-cell">102</div>
+                    <div class="table-cell">Trực tiếp</div>
+                    <div class="table-cell">800</div>
+                    <div class="table-cell">300</div>
+                    <div class="table-cell">500</div>
+                    <div class="table-cell">
+                        <span class="status-badge status-pending">Chờ thanh toán</span>
+                    </div>
+                    <div class="table-cell">Phạm Thị Bình</div>
+                    <div class="table-cell">
+                        <button class="view-btn">Xem chi tiết</button>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell">HD-2-023-003</div>
+                    <div class="table-cell">2023-08-17</div>
+                    <div class="table-cell">Hoàng Anh Thư</div>
+                    <div class="table-cell">103</div>
+                    <div class="table-cell">Nhóm</div>
+                    <div class="table-cell">1.500</div>
+                    <div class="table-cell">700</div>
+                    <div class="table-cell">800</div>
+                    <div class="table-cell">
+                        <span class="status-badge status-paid">Đã thanh toán</span>
+                    </div>
+                    <div class="table-cell">Vũ Đức Cường</div>
+                    <div class="table-cell">
+                        <button class="view-btn">Xem chi tiết</button>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell">HD-2-023-004</div>
+                    <div class="table-cell">2023-08-18</div>
+                    <div class="table-cell">Phan Thanh Tùng</div>
+                    <div class="table-cell">104</div>
+                    <div class="table-cell">OTA</div>
+                    <div class="table-cell">1.100</div>
+                    <div class="table-cell">400</div>
+                    <div class="table-cell">700</div>
+                    <div class="table-cell">
+                        <span class="status-badge status-paid">Đã thanh toán</span>
+                    </div>
+                    <div class="table-cell">Đỗ Thị Dung</div>
+                    <div class="table-cell">
+                        <button class="view-btn">Xem chi tiết</button>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell">HD-2-023-005</div>
+                    <div class="table-cell">2023-08-19</div>
+                    <div class="table-cell">Trịnh Mỹ Linh</div>
+                    <div class="table-cell">105</div>
+                    <div class="table-cell">Trực tiếp</div>
+                    <div class="table-cell">900</div>
+                    <div class="table-cell">200</div>
+                    <div class="table-cell">700</div>
+                    <div class="table-cell">
+                        <span class="status-badge status-pending">Chờ thanh toán</span>
+                    </div>
+                    <div class="table-cell">Nhật Văn Hải</div>
+                    <div class="table-cell">
+                        <button class="view-btn">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination Info -->
+            <div class="pagination-info">
+                Hiển thị 1 - 10 trong tổng số 150 hóa đơn
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                </button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span class="page-dots">...</span>
+                <button class="page-btn">15</button>
+                <button class="page-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

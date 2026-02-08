@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hỗ trợ khách hàng - HotelHub</title>
+    <link rel="stylesheet" th:href="@{/css/customer_support.css}">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <aside class="chat-sidebar">
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <button class="menu-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <input type="text" placeholder="Tìm kiếm...">
+                <button class="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="section-title">Tin nhắn gần đây</div>
+            
+            <!-- Chat List -->
+            <div class="chat-list">
+                <div class="chat-item active">
+                    <div class="chat-avatar">
+                        <img src="https://i.pravatar.cc/40?img=1" alt="Nguyễn Văn A">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name">Nguyễn Văn A</div>
+                        <div class="chat-preview">Dạ cho em hỏi phòng VIP còn...</div>
+                    </div>
+                    <div class="chat-time">10:30</div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://i.pravatar.cc/40?img=2" alt="Nguyễn Văn B">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name">Nguyễn Văn B</div>
+                        <div class="chat-preview">Mình muốn đặt thêm 1 giường phụ</div>
+                    </div>
+                    <div class="chat-time">13:00</div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://i.pravatar.cc/40?img=3" alt="Nguyễn Văn C">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name">Nguyễn Văn C</div>
+                        <div class="chat-preview">Đã chuyển khoản cọc phòng 500k rồi nhé</div>
+                    </div>
+                    <div class="chat-time">15:30</div>
+                </div>
+                
+                <div class="chat-item">
+                    <div class="chat-avatar">
+                        <img src="https://i.pravatar.cc/40?img=4" alt="Nguyễn Văn D">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name">Nguyễn Văn D</div>
+                        <div class="chat-preview">Dạ cho mình hỏi khách sạn có cho thuê xe máy không ạ?</div>
+                    </div>
+                    <div class="chat-time">16:30</div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Chat Main -->
+        <main class="chat-main">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="header-user">
+                    <div class="user-avatar">
+                        <img src="https://i.pravatar.cc/40?img=1" alt="Nguyễn Văn A">
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Nguyễn Văn A</div>
+                        <div class="user-status">Đang hoạt động</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div class="chat-messages">
+                <div class="message-group">
+                    <div class="message received">
+                        <div class="message-avatar">
+                            <img src="https://i.pravatar.cc/32?img=1" alt="Nguyễn Văn A">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                Dạ cho em hỏi khách sạn mình có phục vụ ăn sáng tại phòng không ạ?
+                            </div>
+                            <div class="message-time">7:30</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="message-group">
+                    <div class="message sent">
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                Dạ có ạ. Anh chị có thể xem menu trong phòng và gọi là tận phím 0 để đặt món nhé!
+                            </div>
+                            <div class="message-time">7:31</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="chat-input">
+                <button class="attach-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                    </svg>
+                </button>
+                <input type="text" placeholder="Nhập tin nhắn...">
+                <button class="send-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
